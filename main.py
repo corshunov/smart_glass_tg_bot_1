@@ -9,13 +9,14 @@ from aiogram.types import Message
 
 cmd = namedtuple('cmd', ['command', 'description'])
 
-home_dpath = Path.home()
-requests_dpath = home_dpath / "smart_glass_controller" / "data" / "requests"
+controller_dpath = Path.home() / "smart_glass" / "controller"
+requests_dpath = controller_dpath / "data" / "requests"
+
 update_ref_fpath = requests_dpath / "update_ref"
 record_fpath = requests_dpath / "record"
 
 CHAT_ID = getenv("CHAT_ID")
-TOKEN = getenv("BOT_TOKEN")
+TOKEN = getenv("CONTROLLER_BOT_TOKEN")
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher(bot=bot)
